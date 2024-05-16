@@ -95,7 +95,7 @@ with st.sidebar:
     
     totalWorkingYears = st.number_input('Total Working Years', min_value=0, value="min", step=1, format='%i', key=None, label_visibility="visible")
     
-    trainingTimesLastYear = st.number_input('Training Times Last Year', min_value=1, value="min", step=1, format='%i', key=None, label_visibility="visible")
+    trainingTimesLastYear = st.number_input('Training Times Last Year', min_value=0, value="min", step=1, format='%i', key=None, label_visibility="visible")
     
     WorkLifeBalance = st.selectbox(
         "Work Life Balance",
