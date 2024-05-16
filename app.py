@@ -160,5 +160,5 @@ df_feature_importance.sort_values(by='feature_importance', ascending=False, inpl
 
 feature_importances_str = ""
 for index in features:
-    feature_importances_str += "{index}: {df_feature_importance.iloc[index]*100:.2f}\n"
+    feature_importances_str += f"{index}: {df_feature_importance.iloc[index]*100:.2f}\n"
 feature_importances.write(feature_importances_str)
