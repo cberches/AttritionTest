@@ -137,8 +137,8 @@ for col in encoders.keys():
 
 pred_proba = model.predict_proba(df_to_predict)
 pred = model.predict(df_to_predict)
-churn_proba = float(pred_proba[0][0])
-active_proba = float(pred_proba[0][1])
+active_proba = float(pred_proba[0][0])
+churn_proba = float(pred_proba[0][1])
 
 pred = encoders['Attrition'].inverse_transform(pred)[0]
 
