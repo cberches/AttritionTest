@@ -25,6 +25,7 @@ result.write("<div style='padding: 10px 40px; margin-top: -20px;'>"+
                 "</div>", unsafe_allow_html=True)
 
 with st.sidebar:
+    generate = st.button('Generate')
     age_generation = st.selectbox(
         "Age Generation",
         ('Millennials', 'Gen X', 'Gen Z', 'Boomers II (a/k/a Generation Jones)*'))
@@ -115,57 +116,58 @@ with st.sidebar:
     
     yearsWithCurrManager = st.number_input('Years With Curr Manager', min_value=0, value="min", step=1, format='%i', key=None, label_visibility="visible")
 
-features = ['AgeGeneration', 'BusinessTravel', 'DailyRate',
-       'Department', 'DistanceFromHomeCategory',
-       'Education', 'EducationField', 'EnvironmentSatisfaction',
-       'Gender', 'JobInvolvement',
-       'JobLevel', 'JobRole', 'JobSatisfaction', 'MaritalStatus', 'NumCompaniesWorked',
-        'Overtime_Preference', 'PercentSalaryHike',
-       'PerformanceRating', 
-       'RelationshipSatisfaction', 'StockOptionLevel',
-       'TotalWorkingYears', 'TrainingTimesLastYear', 'WorkLifeBalance',
-       'YearsAtCompany', 'YearsInCurrentRole', 'YearsSinceLastPromotion',
-       'YearsWithCurrManager']
-target = 'Attrition'
+if generate:
+    features = ['AgeGeneration', 'BusinessTravel', 'DailyRate',
+        'Department', 'DistanceFromHomeCategory',
+        'Education', 'EducationField', 'EnvironmentSatisfaction',
+        'Gender', 'JobInvolvement',
+        'JobLevel', 'JobRole', 'JobSatisfaction', 'MaritalStatus', 'NumCompaniesWorked',
+            'Overtime_Preference', 'PercentSalaryHike',
+        'PerformanceRating', 
+        'RelationshipSatisfaction', 'StockOptionLevel',
+        'TotalWorkingYears', 'TrainingTimesLastYear', 'WorkLifeBalance',
+        'YearsAtCompany', 'YearsInCurrentRole', 'YearsSinceLastPromotion',
+        'YearsWithCurrManager']
+    target = 'Attrition'
 
-values_to_predict = [age_generation, business_travel, daily_rate, department, distance_from_home, education, educationField, 
-                        environmentSatisfaction, gender, job_involvement, job_level, jobRole, jobSatisfaction, maritalStatus,
-                        numCompaniesWorked, overTime, percentSalaryHike, performanceRating, relationshipSatisfaction, 
-                        stockOptionLevel, totalWorkingYears, trainingTimesLastYear, WorkLifeBalance, yearsAtCompany,
-                        yearsInCurrentRole, yearsSinceLastPromotion, yearsWithCurrManager]
+    values_to_predict = [age_generation, business_travel, daily_rate, department, distance_from_home, education, educationField, 
+                            environmentSatisfaction, gender, job_involvement, job_level, jobRole, jobSatisfaction, maritalStatus,
+                            numCompaniesWorked, overTime, percentSalaryHike, performanceRating, relationshipSatisfaction, 
+                            stockOptionLevel, totalWorkingYears, trainingTimesLastYear, WorkLifeBalance, yearsAtCompany,
+                            yearsInCurrentRole, yearsSinceLastPromotion, yearsWithCurrManager]
 
 
-col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2)
 
-df_to_predict = pd.DataFrame(values_to_predict, index=features).T
+    df_to_predict = pd.DataFrame(values_to_predict, index=features).T
 
-for col in encoders.keys():
-    if (col != 'Attrition') and (col != 'OverTime'):
-        df_to_predict[col] = encoders[col].transform(df_to_predict[col])
+    for col in encoders.keys():
+        if (col != 'Attrition') and (col != 'OverTime'):
+            df_to_predict[col] = encoders[col].transform(df_to_predict[col])
 
-pred_proba = model.predict_proba(df_to_predict)
-active_proba = float(pred_proba[0][0])
-churn_proba = float(pred_proba[0][1])
+    pred_proba = model.predict_proba(df_to_predict)
+    active_proba = float(pred_proba[0][0])
+    churn_proba = float(pred_proba[0][1])
 
-shap_values = explainer.shap_values(df_to_predict)
+    shap_values = explainer.shap_values(df_to_predict)
 
-shap_values_abs = np.abs(shap_values).mean(axis=0)
-df_feature_importance = pd.DataFrame(shap_values_abs, index=features, columns=['feature_importance'])
-df_feature_importance.sort_values(by='feature_importance', ascending=False, inplace=True)
+    shap_values_abs = np.abs(shap_values).mean(axis=0)
+    df_feature_importance = pd.DataFrame(shap_values_abs, index=features, columns=['feature_importance'])
+    df_feature_importance.sort_values(by='feature_importance', ascending=False, inplace=True)
 
-feature_importances_str = "<ol>"
-for index in features:
-    feature_importances_str += f"<li>{index}: {df_feature_importance.loc[index].values[0]*100:.2f}%\n</li>"
+    feature_importances_str = "<ol>"
+    for index in features:
+        feature_importances_str += f"<li>{index}: {df_feature_importance.loc[index].values[0]*100:.2f}%\n</li>"
 
-with col1: 
-    result.write("<div style='padding: 10px 40px; margin-top: -20px;'>"+
-                "<h5 style='text-align: center; background-color: #6750A4; padding: 10px; margin: 0 auto;'>Prediction Breakdown</h5>" +
-                f"<h4 style='text-align: center;'>{active_proba * 100:.2f}%</h4>" +
-                "<h6 style='text-align: center;background-color: #1D192B; padding: 10px; width:50%; margin: 0 auto;'>Will Likely Stay</h6>" + 
-                f"<h4 style='text-align: center;'>{churn_proba * 100:.2f}%</h4>" +
-                "<h6 style='text-align: center;background-color: #B3261E; padding: 10px; width:50%; margin: auto auto;'>Will Likely Churn</h6>" +
-                "</div>", unsafe_allow_html=True)
+    with col1: 
+        result.write("<div style='padding: 10px 40px; margin-top: -20px;'>"+
+                    "<h5 style='text-align: center; background-color: #6750A4; padding: 10px; margin: 0 auto;'>Prediction Breakdown</h5>" +
+                    f"<h4 style='text-align: center;'>{active_proba * 100:.2f}%</h4>" +
+                    "<h6 style='text-align: center;background-color: #1D192B; padding: 10px; width:50%; margin: 0 auto;'>Will Likely Stay</h6>" + 
+                    f"<h4 style='text-align: center;'>{churn_proba * 100:.2f}%</h4>" +
+                    "<h6 style='text-align: center;background-color: #B3261E; padding: 10px; width:50%; margin: auto auto;'>Will Likely Churn</h6>" +
+                    "</div>", unsafe_allow_html=True)
 
-with col2:
-    feature_importances_title.title("Factors for Attrition")
-    feature_importances.markdown(feature_importances_str + "</ol>")
+    with col2:
+        feature_importances_title.title("Factors for Attrition")
+        feature_importances.markdown(feature_importances_str + "</ol>")
