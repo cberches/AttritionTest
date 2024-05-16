@@ -12,6 +12,7 @@ encoders = pickle.load(open('models/encoder_2024_05_16.sav', 'rb'))
 explainer = pickle.load(open('models/explainer_2024_05_16.sav', 'rb'))
 result = st.empty()
 feature_importances = st.empty()
+feature_importances_title = st.empty()
 
 active_proba, churn_proba = 0,0
 
@@ -162,5 +163,5 @@ while st.spinner():
     feature_importances_str = ""
     for index in features:
         feature_importances_str += f"{index}: {df_feature_importance.loc[index].values[0]*100:.2f}%\n"
-    st.title("Factors for Attrition")
-    feature_importances.write(feature_importances_str)
+    feature_importances_title.title("Factors for Attrition")
+    feature_importances.markdwn(feature_importances_str)
