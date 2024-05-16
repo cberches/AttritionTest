@@ -109,10 +109,6 @@ with st.sidebar:
     
     yearsWithCurrManager = st.number_input('Years With Curr Manager', min_value=0, value="min", step=1, format='%i', key=None, label_visibility="visible")
 
-    isPredict = st.button("Predict")
-
-
-
 features = ['AgeGeneration', 'BusinessTravel', 'DailyRate',
        'Department', 'DistanceFromHomeCategory',
        'Education', 'EducationField', 'EnvironmentSatisfaction',
