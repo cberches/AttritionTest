@@ -135,11 +135,15 @@ for col in encoders.keys():
     if (col != 'Attrition') and (col != 'OverTime'):
         df_to_predict[col] = encoders[col].transform(df_to_predict[col])
 
-pred = model.predict_proba(df_to_predict)
-active_proba = float(pred[0][0])
-churn_proba = float(pred[0][1])
+pred_proba = model.predict_proba(df_to_predict)
+pred = model.predict(df_to_predict)
+active_proba = float(pred_proba[0][0])
+churn_proba = float(pred_proba[0][1])
+
 
 result.write("<div style='padding: 10px 40px; margin-top: -20px;'>"+
+            "<h5 style='text-align: center; background-color: #454B1B; padding: 10px; margin: 0 auto;'>Prediction Breakdown</h5>" +
+            f"<h4 style='text-align: center;'>{pred}</h4>" +
             "<h5 style='text-align: center; background-color: #6750A4; padding: 10px; margin: 0 auto;'>Prediction Breakdown</h5>" +
             f"<h4 style='text-align: center;'>{active_proba * 100:.2f}%</h4>" +
             "<h6 style='text-align: center;background-color: #1D192B; padding: 10px; width:50%; margin: 0 auto;'>Will Likely Stay</h6>" + 
