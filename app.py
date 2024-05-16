@@ -158,15 +158,15 @@ while st.spinner('Analyzing'):
     for index in features:
         feature_importances_str += f"{index}: {df_feature_importance.loc[index].values[0]*100:.2f}%\n"
 
-with col1: 
-    result.write("<div style='padding: 10px 40px; margin-top: -20px;'>"+
-                "<h5 style='text-align: center; background-color: #6750A4; padding: 10px; margin: 0 auto;'>Prediction Breakdown</h5>" +
-                f"<h4 style='text-align: center;'>{active_proba * 100:.2f}%</h4>" +
-                "<h6 style='text-align: center;background-color: #1D192B; padding: 10px; width:50%; margin: 0 auto;'>Will Likely Stay</h6>" + 
-                f"<h4 style='text-align: center;'>{churn_proba * 100:.2f}%</h4>" +
-                "<h6 style='text-align: center;background-color: #B3261E; padding: 10px; width:50%; margin: auto auto;'>Will Likely Churn</h6>" +
-                "</div>", unsafe_allow_html=True)
+    with col1: 
+        result.write("<div style='padding: 10px 40px; margin-top: -20px;'>"+
+                    "<h5 style='text-align: center; background-color: #6750A4; padding: 10px; margin: 0 auto;'>Prediction Breakdown</h5>" +
+                    f"<h4 style='text-align: center;'>{active_proba * 100:.2f}%</h4>" +
+                    "<h6 style='text-align: center;background-color: #1D192B; padding: 10px; width:50%; margin: 0 auto;'>Will Likely Stay</h6>" + 
+                    f"<h4 style='text-align: center;'>{churn_proba * 100:.2f}%</h4>" +
+                    "<h6 style='text-align: center;background-color: #B3261E; padding: 10px; width:50%; margin: auto auto;'>Will Likely Churn</h6>" +
+                    "</div>", unsafe_allow_html=True)
 
-with col2:
-    feature_importances_title.title("Factors for Attrition")
-    feature_importances.markdown(feature_importances_str)
+    with col2:
+        feature_importances_title.title("Factors for Attrition")
+        feature_importances.markdown(feature_importances_str)
