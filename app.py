@@ -140,7 +140,7 @@ pred = model.predict(df_to_predict)
 churn_proba = float(pred_proba[0][0])
 active_proba = float(pred_proba[0][1])
 
-pred = encoders['Attrition'].inverse_transform(pred[0])
+pred = encoders['Attrition'].inverse_transform(pred)[0]
 
 result.write("<div style='padding: 10px 40px; margin-top: -20px;'>"+
             "<h5 style='text-align: center; background-color: #6750A4; padding: 10px; margin: 0 auto;'>Prediction Breakdown</h5>" +
