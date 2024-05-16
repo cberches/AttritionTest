@@ -11,6 +11,7 @@ model = pickle.load(open('models/model_2024_05_16.sav', 'rb'))
 encoders = pickle.load(open('models/encoder_2024_05_16.sav', 'rb'))
 explainer = pickle.load(open('models/explainer_2024_05_16.sav', 'rb'))
 result = st.empty()
+feature_importances = st.empty()
 
 active_proba, churn_proba = 0,0
 
@@ -157,4 +158,7 @@ shap_values_abs = np.abs(shap_values).mean(axis=0)
 df_feature_importance = pd.DataFrame(shap_values_abs, index=features, columns=['feature_importance'])
 df_feature_importance.sort_values(by='feature_importance', ascending=False, inplace=True)
 
-st.dataframe(df_feature_importance)
+feature_importances_str = ""
+for index in features:
+    feature_importances_str += "{index}: {df_feature_importance.iloc[index]*100:.2f}\n"
+feature_importances.write(feature_importances_str)
