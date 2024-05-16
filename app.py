@@ -152,13 +152,15 @@ result.write("<div style='padding: 10px 40px; margin-top: -20px;'>"+
             "<h6 style='text-align: center;background-color: #B3261E; padding: 10px; width:50%; margin: auto auto;'>Will Likely Churn</h6>" +
             "</div>", unsafe_allow_html=True)
 
-shap_values = explainer.shap_values(df_to_predict)
+while st.spinner():
+    shap_values = explainer.shap_values(df_to_predict)
 
-shap_values_abs = np.abs(shap_values).mean(axis=0)
-df_feature_importance = pd.DataFrame(shap_values_abs, index=features, columns=['feature_importance'])
-df_feature_importance.sort_values(by='feature_importance', ascending=False, inplace=True)
+    shap_values_abs = np.abs(shap_values).mean(axis=0)
+    df_feature_importance = pd.DataFrame(shap_values_abs, index=features, columns=['feature_importance'])
+    df_feature_importance.sort_values(by='feature_importance', ascending=False, inplace=True)
 
-feature_importances_str = ""
-for index in features:
-    feature_importances_str += f"{index}: {df_feature_importance.loc['Overtime_Preference'].values[0]*100:.2f}%\n"
-feature_importances.write(feature_importances_str)
+    feature_importances_str = ""
+    for index in features:
+        feature_importances_str += f"{index}: {df_feature_importance.loc[index].values[0]*100:.2f}%\n"
+    st.title("Factors for Attrition")
+    feature_importances.write(feature_importances_str)
