@@ -16,7 +16,7 @@ with col1:
     result = st.empty()
 with col2: 
     feature_importances_title = st.empty()
-feature_importances = st.empty()
+    feature_importances = st.empty()
 
 active_proba, churn_proba = 0,0
 
@@ -156,7 +156,7 @@ if generate:
     df_feature_importance = pd.DataFrame(shap_values_abs, index=features, columns=['feature_importance'])
     df_feature_importance.sort_values(by='feature_importance', ascending=False, inplace=True)
 
-    feature_importances_str = "<ol>"
+    feature_importances_str = "<div><ol>"
     for index in features:
         feature_importances_str += f"<li>{index}: {df_feature_importance.loc[index].values[0]*100:.2f}%\n</li>"
 
@@ -169,4 +169,4 @@ if generate:
                 "</div>", unsafe_allow_html=True)
 
     feature_importances_title.title("Factors for Attrition")
-    feature_importances.write(feature_importances_str + "</ol>")
+    feature_importances.write(feature_importances_str + "</ol></div>")
