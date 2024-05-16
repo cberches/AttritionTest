@@ -169,4 +169,4 @@ if generate:
                 "</div>", unsafe_allow_html=True)
 
     feature_importances_title.title("Factors for Attrition")
-    feature_importances.write(feature_importances_str + "</ol></div>")
+    feature_importances.write(feature_importances_str + "</ol></div>", unsafe_allow_html=True)
