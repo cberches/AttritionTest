@@ -154,9 +154,9 @@ while st.spinner('Analyzing'):
     df_feature_importance = pd.DataFrame(shap_values_abs, index=features, columns=['feature_importance'])
     df_feature_importance.sort_values(by='feature_importance', ascending=False, inplace=True)
 
-    feature_importances_str = ""
+    feature_importances_str = "<ol>"
     for index in features:
-        feature_importances_str += f"{index}: {df_feature_importance.loc[index].values[0]*100:.2f}%\n"
+        feature_importances_str += f"<li>{index}: {df_feature_importance.loc[index].values[0]*100:.2f}%\n</li>"
 
     with col1: 
         result.write("<div style='padding: 10px 40px; margin-top: -20px;'>"+
@@ -169,4 +169,4 @@ while st.spinner('Analyzing'):
 
     with col2:
         feature_importances_title.title("Factors for Attrition")
-        feature_importances.markdown(feature_importances_str)
+        feature_importances.markdown(feature_importances_str + "</ol>")
