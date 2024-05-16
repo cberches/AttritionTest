@@ -133,27 +133,21 @@ values_to_predict = [age_generation, business_travel, daily_rate, department, di
                         numCompaniesWorked, overTime, percentSalaryHike, performanceRating, relationshipSatisfaction, 
                         stockOptionLevel, totalWorkingYears, trainingTimesLastYear, WorkLifeBalance, yearsAtCompany,
                         yearsInCurrentRole, yearsSinceLastPromotion, yearsWithCurrManager]
-df_to_predict = pd.DataFrame(values_to_predict, index=features).T
 
-for col in encoders.keys():
-    if (col != 'Attrition') and (col != 'OverTime'):
-        df_to_predict[col] = encoders[col].transform(df_to_predict[col])
-
-pred_proba = model.predict_proba(df_to_predict)
-active_proba = float(pred_proba[0][0])
-churn_proba = float(pred_proba[0][1])
 
 col1, col2 = st.columns(2)
 
-result.write("<div style='padding: 10px 40px; margin-top: -20px;'>"+
-            "<h5 style='text-align: center; background-color: #6750A4; padding: 10px; margin: 0 auto;'>Prediction Breakdown</h5>" +
-            f"<h4 style='text-align: center;'>{active_proba * 100:.2f}%</h4>" +
-            "<h6 style='text-align: center;background-color: #1D192B; padding: 10px; width:50%; margin: 0 auto;'>Will Likely Stay</h6>" + 
-            f"<h4 style='text-align: center;'>{churn_proba * 100:.2f}%</h4>" +
-            "<h6 style='text-align: center;background-color: #B3261E; padding: 10px; width:50%; margin: auto auto;'>Will Likely Churn</h6>" +
-            "</div>", unsafe_allow_html=True)
+while st.spinner('Analyzing'):
+    df_to_predict = pd.DataFrame(values_to_predict, index=features).T
 
-while st.spinner():
+    for col in encoders.keys():
+        if (col != 'Attrition') and (col != 'OverTime'):
+            df_to_predict[col] = encoders[col].transform(df_to_predict[col])
+
+    pred_proba = model.predict_proba(df_to_predict)
+    active_proba = float(pred_proba[0][0])
+    churn_proba = float(pred_proba[0][1])
+
     shap_values = explainer.shap_values(df_to_predict)
 
     shap_values_abs = np.abs(shap_values).mean(axis=0)
@@ -163,5 +157,16 @@ while st.spinner():
     feature_importances_str = ""
     for index in features:
         feature_importances_str += f"{index}: {df_feature_importance.loc[index].values[0]*100:.2f}%\n"
+
+with col1: 
+    result.write("<div style='padding: 10px 40px; margin-top: -20px;'>"+
+                "<h5 style='text-align: center; background-color: #6750A4; padding: 10px; margin: 0 auto;'>Prediction Breakdown</h5>" +
+                f"<h4 style='text-align: center;'>{active_proba * 100:.2f}%</h4>" +
+                "<h6 style='text-align: center;background-color: #1D192B; padding: 10px; width:50%; margin: 0 auto;'>Will Likely Stay</h6>" + 
+                f"<h4 style='text-align: center;'>{churn_proba * 100:.2f}%</h4>" +
+                "<h6 style='text-align: center;background-color: #B3261E; padding: 10px; width:50%; margin: auto auto;'>Will Likely Churn</h6>" +
+                "</div>", unsafe_allow_html=True)
+
+with col2:
     feature_importances_title.title("Factors for Attrition")
-    feature_importances.markdwn(feature_importances_str)
+    feature_importances.markdown(feature_importances_str)
