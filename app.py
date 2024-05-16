@@ -10,9 +10,13 @@ st.write("Data Source: [Kaggle - IBM HR Analytics Employee Attrition & Performan
 model = pickle.load(open('models/model_2024_05_16.sav', 'rb'))
 encoders = pickle.load(open('models/encoder_2024_05_16.sav', 'rb'))
 explainer = pickle.load(open('models/explainer_2024_05_16.sav', 'rb'))
-result = st.empty()
+col1, col2 = st.columns(2)
+
+with col1: 
+    result = st.empty()
+with col2: 
+    feature_importances_title = st.empty()
 feature_importances = st.empty()
-feature_importances_title = st.empty()
 
 active_proba, churn_proba = 0,0
 
@@ -136,9 +140,6 @@ if generate:
                             stockOptionLevel, totalWorkingYears, trainingTimesLastYear, WorkLifeBalance, yearsAtCompany,
                             yearsInCurrentRole, yearsSinceLastPromotion, yearsWithCurrManager]
 
-
-    col1, col2 = st.columns(2)
-
     df_to_predict = pd.DataFrame(values_to_predict, index=features).T
 
     for col in encoders.keys():
@@ -159,15 +160,13 @@ if generate:
     for index in features:
         feature_importances_str += f"<li>{index}: {df_feature_importance.loc[index].values[0]*100:.2f}%\n</li>"
 
-    with col1: 
-        result.write("<div style='padding: 10px 40px; margin-top: -20px;'>"+
-                    "<h5 style='text-align: center; background-color: #6750A4; padding: 10px; margin: 0 auto;'>Prediction Breakdown</h5>" +
-                    f"<h4 style='text-align: center;'>{active_proba * 100:.2f}%</h4>" +
-                    "<h6 style='text-align: center;background-color: #1D192B; padding: 10px; width:50%; margin: 0 auto;'>Will Likely Stay</h6>" + 
-                    f"<h4 style='text-align: center;'>{churn_proba * 100:.2f}%</h4>" +
-                    "<h6 style='text-align: center;background-color: #B3261E; padding: 10px; width:50%; margin: auto auto;'>Will Likely Churn</h6>" +
-                    "</div>", unsafe_allow_html=True)
+    result.write("<div style='padding: 10px 40px; margin-top: -20px;'>"+
+                "<h5 style='text-align: center; background-color: #6750A4; padding: 10px; margin: 0 auto;'>Prediction Breakdown</h5>" +
+                f"<h4 style='text-align: center;'>{active_proba * 100:.2f}%</h4>" +
+                "<h6 style='text-align: center;background-color: #1D192B; padding: 10px; width:50%; margin: 0 auto;'>Will Likely Stay</h6>" + 
+                f"<h4 style='text-align: center;'>{churn_proba * 100:.2f}%</h4>" +
+                "<h6 style='text-align: center;background-color: #B3261E; padding: 10px; width:50%; margin: auto auto;'>Will Likely Churn</h6>" +
+                "</div>", unsafe_allow_html=True)
 
-    with col2:
-        feature_importances_title.title("Factors for Attrition")
-        feature_importances.markdown(feature_importances_str + "</ol>")
+    feature_importances_title.title("Factors for Attrition")
+    feature_importances.write(feature_importances_str + "</ol>")
