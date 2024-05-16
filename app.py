@@ -5,7 +5,7 @@ import pandas as pd
 st.set_page_config(page_title=" Employee Attrition Prediction", layout="wide")
 st.header("Attrition Prediction per Employee")
 
-st.write("Data Source: [link](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)")
+st.write("Data Source: [Kaggle - IBM HR Analytics Employee Attrition & Performance](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)")
 model = pickle.load(open('models/model_2024_05_16.sav', 'rb'))
 encoders = pickle.load(open('models/encoder_2024_05_16.sav', 'rb'))
 result = st.empty()
