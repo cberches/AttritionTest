@@ -157,7 +157,7 @@ if generate:
     df_feature_importance.sort_values(by='feature_importance', ascending=False, inplace=True)
 
     feature_importances_str = "<div><ol>"
-    for index in features:
+    for index in df_feature_importance.index:
         feature_importances_str += f"<li>{index}: {df_feature_importance.loc[index].values[0]*100:.2f}%\n</li>"
 
     result.write("<div style='padding: 10px 40px; margin-top: -20px;'>"+
