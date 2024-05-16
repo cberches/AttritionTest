@@ -159,6 +159,6 @@ df_feature_importance = pd.DataFrame(shap_values_abs, index=features, columns=['
 df_feature_importance.sort_values(by='feature_importance', ascending=False, inplace=True)
 
 feature_importances_str = ""
-for index in features:
+for index in df_feature_importance.index:
     feature_importances_str += f"{index}: {df_feature_importance.iloc[index]*100:.2f}\n"
 feature_importances.write(feature_importances_str)
