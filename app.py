@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import pandas as pd
+import numpy as np
 
 st.set_page_config(page_title=" Employee Attrition Prediction", layout="wide")
 st.header("Attrition Prediction per Employee")
@@ -8,6 +9,7 @@ st.header("Attrition Prediction per Employee")
 st.write("Data Source: [Kaggle - IBM HR Analytics Employee Attrition & Performance](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)")
 model = pickle.load(open('models/model_2024_05_16.sav', 'rb'))
 encoders = pickle.load(open('models/encoder_2024_05_16.sav', 'rb'))
+explainer = pickle.load(open('models/explainer_2024_05_16.sav', 'rb'))
 result = st.empty()
 
 active_proba, churn_proba = 0,0
@@ -136,18 +138,23 @@ for col in encoders.keys():
         df_to_predict[col] = encoders[col].transform(df_to_predict[col])
 
 pred_proba = model.predict_proba(df_to_predict)
-pred = model.predict(df_to_predict)
 active_proba = float(pred_proba[0][0])
 churn_proba = float(pred_proba[0][1])
 
-pred = encoders['Attrition'].inverse_transform(pred)[0]
+col1, col2 = st.columns(2)
 
 result.write("<div style='padding: 10px 40px; margin-top: -20px;'>"+
             "<h5 style='text-align: center; background-color: #6750A4; padding: 10px; margin: 0 auto;'>Prediction Breakdown</h5>" +
-            f"<h4 style='text-align: center;'>{pred}</h4>" +
-            "<h6 style='text-align: center;background-color: #454B1B; padding: 10px; width:50%; margin: 0 auto;'>Prediction</h6>" + 
             f"<h4 style='text-align: center;'>{active_proba * 100:.2f}%</h4>" +
             "<h6 style='text-align: center;background-color: #1D192B; padding: 10px; width:50%; margin: 0 auto;'>Will Likely Stay</h6>" + 
             f"<h4 style='text-align: center;'>{churn_proba * 100:.2f}%</h4>" +
             "<h6 style='text-align: center;background-color: #B3261E; padding: 10px; width:50%; margin: auto auto;'>Will Likely Churn</h6>" +
             "</div>", unsafe_allow_html=True)
+
+shap_values = explainer.shap_values(df_to_predict)
+
+shap_values_abs = np.abs(shap_values).mean(axis=0)
+df_feature_importance = pd.DataFrame(shap_values_abs, index=features, columns=['feature_importance'])
+df_feature_importance.sort_values(by='feature_importance', ascending=False, inplace=True)
+
+st.dataframe(df_feature_importance)
