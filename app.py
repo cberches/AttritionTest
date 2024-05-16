@@ -4,7 +4,8 @@ import pandas as pd
 
 st.set_page_config(page_title=" Employee Attrition Prediction", layout="wide")
 st.header("Attrition Prediction per Employee")
-
+model = pickle.load(open('models/model_2024_05_16.sav', 'rb'))
+encoders = pickle.load(open('models/encoder_2024_05_16.sav', 'rb'))
 result = st.empty()
 
 active_proba, churn_proba = 0,0
@@ -110,8 +111,7 @@ with st.sidebar:
 
     isPredict = st.button("Predict")
 
-model = pickle.load(open('models/model_2024_05_15.sav', 'rb'))
-encoders = pickle.load(open('models/encoder_2024_05_15.sav', 'rb'))
+
 
 features = ['AgeGeneration', 'BusinessTravel', 'DailyRate',
        'Department', 'DistanceFromHomeCategory',
