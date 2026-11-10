@@ -1,21 +1,13 @@
 import streamlit as st
+import os
 import uuid
 from dotenv import load_dotenv
-from langchain_core.messages import HumanMessage
-from langchain_openai import ChatOpenAI
 
-# Import the compiled graph from agent.py
-from agent import hr_copilot
-
-import streamlit as st
-import os
-
-# 1. INJECT SECRETS FIRST (Must be before importing agent.py)
 if "OPENAI_API_KEY" in st.secrets:
     os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
-import uuid
-from dotenv import load_dotenv
+load_dotenv()
+
 from langchain_core.messages import HumanMessage
 from langchain_openai import ChatOpenAI
 

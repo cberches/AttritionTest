@@ -15,7 +15,7 @@ from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.memory import MemorySaver
 from langchain.tools import tool
 
-# Initialize LLM
+# Initialize LLM (Will now successfully find OPENAI_API_KEY injected from Streamlit secrets)
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
 # --- Analyst Node ---
