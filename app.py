@@ -7,6 +7,26 @@ from langchain_openai import ChatOpenAI
 # Import the compiled graph from agent.py
 from agent import hr_copilot
 
+import streamlit as st
+import os
+
+# 1. INJECT SECRETS FIRST (Must be before importing agent.py)
+if "OPENAI_API_KEY" in st.secrets:
+    os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+
+import uuid
+from dotenv import load_dotenv
+from langchain_core.messages import HumanMessage
+from langchain_openai import ChatOpenAI
+
+# 2. Now it's safe to import agent.py because the environment variable exists
+from agent import hr_copilot
+
+load_dotenv()
+
+# --- CUSTOM GUARDRAILS ---
+guard_llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+
 load_dotenv()
 
 # --- CUSTOM GUARDRAILS (Rubric-Approved Alternative) ---
