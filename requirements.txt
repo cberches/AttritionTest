@@ -15,3 +15,6 @@ tiktoken
 langchain_community
 langchain-qdrant
 nest_asyncio
+plotly
+seaborn
+matplotlib
