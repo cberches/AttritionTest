@@ -1,101 +1,51 @@
 question,ground_truth
-What is the cash bonus for the Bayanihan Loyalty Program when an employee reaches 10 Total Working Years?,"Upon reaching 10 Total Working Years, employees receive a tax-free loyalty cash bonus of PHP 100,000 alongside a plaque of appreciation."
-How many days of paid sabbatical leave are employees entitled to once they surpass 10 Total Working Years?,"Employees surpassing 10 Total Working Years are entitled to a fully paid 30-day sabbatical leave, entirely separate from their standard 15-day Vacation Leave and 15-day Sick Leave credits."
-What are the eligibility requirements for an employee to receive free premium HMO coverage for up to three qualified dependents?,"Employees with over 5 Total Working Years automatically receive free premium HMO coverage for up to three qualified dependents, covering pre-existing conditions."
-What is the baseline minimum Percent Salary Hike that all non-PIP employees must receive annually regardless of standard performance?,"All non-PIP employees must receive a baseline 4% Percent Salary Hike annually to combat inflation, regardless of standard performance."
-What percentage range of Percent Salary Hike should high-flight-risk employees with an Outstanding or Excellent rating receive?,High-flight-risk employees with an Outstanding or Excellent rating must receive a total 10% to 15% Percent Salary Hike.
-What are the specific De Minimis benefits provided to employees whose Daily Rate falls in the lower 30th percentile of their department?,"The De Minimis benefits include a Rice Subsidy of PHP 2,000 monthly, a Clothing & Laundry allowance of PHP 6,000 annually, and a Medical Cash Allowance of PHP 10,000 annually."
-What mandatory dialogue and options must be provided if an employee's Years In Current Role reaches 3 years without a formal promotion?,"The direct manager must initiate a 'Career Crossroads' dialogue, offering either a Lateral Transfer (no-fault transfer to a different team or department) or an 'Acting' Capacity Role (temporary assignment to a higher JobLevel for 6 months with a 10% OIC allowance)."
-What is the mandated Night Shift Differential percentage and the working hours it applies to?,A 15% Night Shift Differential (exceeding the DOLE 10% minimum) is mandated for work performed between 10:00 PM and 6:00 AM.
-What monthly stipend do high-stress roles automatically receive under Acme Corp policy?,"High-stress roles automatically receive an additional PHP 3,000 monthly 'Mental Wellness' stipend."
-What is the mandatory training quota that every employee must achieve each year?,Every employee must achieve a minimum of 3 Training Times Last Year.
-How much financial support is provided annually in tuition reimbursement for approved third-party certifications like TESDA or AIM?,"Employees are entitled to PHP 50,000 annually in tuition reimbursement for approved third-party certifications (e.g., Six Sigma, AWS, Data Analytics) through partners like AIM and TESDA."
-What action is required by HR if an employee's Years With CurrManager exceeds 4 years?,"HR mandates an automatic 'Skip-Level 360 Review' directly with the Department Head, and if friction is identified, HR will facilitate a 'no-questions-asked' team reshuffle."
-What commuter support services and flexible work arrangements are provided to mitigate Metro Manila traffic and improve Environment Satisfaction?,"Acme Corp provides point-to-point company shuttle services in major hubs (Alabang, Makati, Ortigas, Quezon City) and Flexible Work Arrangements (FWA) including a hybrid schedule of up to 3 days Work-From-Home or staggered shifts."
-What are the fully paid maternity and paternity leave durations provided by Acme Corp in compliance with Philippine laws?,Acme Corp provides 105 days of fully paid maternity leave (expandable for single mothers per the Solo Parents' Welfare Act) and 14 days of paid paternity leave (double the DOLE mandate).
-How many additional days of paid leave annually are provided for verified solo parents?,Verified solo parents receive 7 additional days of paid leave annually.
-"According to the HR Intervention Matrix, what policy intervention is required when Total Working Years exceeds 10 years?","Activate the Bayanihan Loyalty bonus and offer a 30-day Paid Sabbatical, with the HR Director as the action owner."
-"According to the intervention matrix, who is the action owner and what action is taken when Percent Salary Hike is less than 8 percent?","The action owner is the VP & HR Partner, and the intervention is to trigger an off-cycle 10-15% Merit & Inflation Adjustment."
-What intervention is applied when an employee has low Environment Satisfaction?,"Approve a staggered shift schedule or full WFH transition and enroll the employee in the company shuttle service, owned by the Direct Manager."
-What is the policy intervention when an employee's Training Times Last Year is less than 2?,"Mandate 2 fully-paid external training courses through TESDA or AIM, with the Direct Manager acting as the owner."
-What policy intervention is specified in the matrix for employees with a Low Daily Rate?,"Maximize DOLE De Minimis benefits (Rice Subsidy, Clothing allowance, and Medical cash allowance), managed by Payroll & Benefits."
-What is the effective date of the Acme Corp Philippines HR & Retention Playbook?,"The effective date is January 1, 2024."
-Who prepared the Acme Corp Philippines HR & Retention Playbook?,It was prepared by Acme Corp Philippines Human Resources in a DOLE-compliant manner.
-What is the document ID of the Acme Corp Philippines HR Policy?,The Document ID is HR-RET-PH-2024.
-"According to Section 1, what does the playbook heavily prioritize following predictive attrition modeling?","It prioritizes interventions for long-tenured employees, compensation adjustments, role stagnation, and localized environmental factors such as Metro Manila commuting and cultural workplace dynamics like pakikisama."
-What legal compliance standard must the playbook ensure besides mitigating churn factors?,It must ensure compliance with the Department of Labor and Employment (DOLE).
-What is identified in Section 2 as the single largest factor in employee attrition based on predictive models?,TotalWorkingYears (accounting for 18.88% of attrition factor ranking).
-Why are employees with extensive industry experience highly susceptible to turnover according to Section 2?,They are susceptible to career burnout or aggressive poaching by competitors in the BPO and tech sectors.
-What cash bonus is given under the Bayanihan Loyalty Program upon reaching 5 Total Working Years?,"A tax-free loyalty cash bonus of PHP 50,000 along with a plaque of appreciation."
-What cash bonus is given under the Bayanihan Loyalty Program upon reaching 15 Total Working Years?,"A tax-free loyalty cash bonus of PHP 150,000 along with a plaque of appreciation."
-Are the loyalty cash bonuses under the Bayanihan Loyalty Program taxable?,"No, they are tax-free loyalty cash bonuses."
-What recognition is awarded alongside the loyalty cash bonus at each milestone of the Bayanihan Loyalty Program?,A plaque of appreciation.
-How many days of standard Vacation Leave and Sick Leave do employees receive before considering the sabbatical leave?,Standard credits include 15 days of Vacation Leave (VL) and 15 days of Sick Leave (SL).
-Is the 30-day paid sabbatical leave deducted from standard Vacation Leave or Sick Leave credits?,"No, it is entirely separate from standard Vacation Leave and Sick Leave credits."
-What condition regarding pre-existing illnesses is included in the expanded HMO coverage for employees with over 5 Total Working Years?,The free premium HMO coverage for up to three qualified dependents automatically covers pre-existing conditions.
-What percentage represents Percent Salary Hike as a driver of employee turnover according to Section 3?,PercentSalaryHike accounts for 6.53% of attrition influence.
-What percentage represents baseline Daily Rate as a driver of turnover?,DailyRate accounts for 1.90% of attrition influence.
-What macro-economic factor in the Philippines makes compensation stagnation particularly critical to address?,Rising inflation in the Philippines.
-Do base salary increases under Section 3.1 rely solely on individual performance?,"No, they must also account for Philippine core inflation."
-What category of employees is explicitly excluded from receiving the baseline 4% annual inflation hike?,Employees currently on a PIP (Performance Improvement Plan).
-If an employee has not received a hike of at least what percentage in the last 12 months is HR authorized to process an off-cycle adjustment?,An off-cycle adjustment is authorized if the employee has not received a hike of at least 8% in the last 12 months.
-What is the objective of maximizing DOLE-approved De Minimis benefits under Section 3.2?,To maximize take-home pay without increasing tax burdens.
-Which employee group is specifically targeted for De Minimis benefits under Section 3.2?,Employees whose Daily Rate falls in the lower 30th percentile of their department.
-What is the exact monthly allowance provided as a Rice Subsidy under De Minimis benefits?,"A PHP 2,000 monthly rice allowance."
-What is the annual allowance provided for Clothing and Laundry under De Minimis benefits?,"A PHP 6,000 annual clothing allowance."
-What is the annual allowance provided for Medical Cash Allowance under De Minimis benefits?,"A PHP 10,000 annual medical cash allowance for out-of-pocket pharmacy expenses."
-Which three metrics in Section 4 require active career pathing to combat career stagnation among mid-level professionals?,"YearsInCurrentRole (5.55%), JobRole (3.49%), and JobLevel (3.12%)."
-What timeline triggers the 'Career Crossroads' dialogue under the 3-Year Rotation Mandate?,When an employee's YearsInCurrentRole reaches 3 years without a formal promotion.
-Who is required to initiate the 'Career Crossroads' dialogue when the 3-year threshold is reached?,The employee's direct manager.
-What is a Lateral Transfer as defined in the 3-Year Rotation Mandate?,A no-fault transfer to a different team or department (such as from Customer Success to Sales) to learn new skills.
-What is an 'Acting' Capacity Role under Section 4.1?,"A temporary assignment to a higher JobLevel (e.g., Acting Team Lead) for 6 months, accompanied by a 10% OIC allowance."
-What is the duration and financial incentive associated with an 'Acting' Capacity Role?,It lasts for 6 months and is accompanied by a 10% OIC (Officer-in-Charge) allowance.
-Which specific job roles are highlighted as facing unique stressors and shift schedules under Section 4.2?,"Manufacturing Directors, Laboratory Technicians, or anyone on shifting schedules."
-"What is the Night Shift Differential percentage mandated by Acme Corp, and how does it compare to the DOLE minimum?","Acme Corp mandates a 15% Night Shift Differential, which exceeds the DOLE 10% minimum."
-Between what hours must work be performed to qualify for the Night Shift Differential?,Between 10:00 PM and 6:00 AM.
-What additional monthly stipend do high-stress roles automatically receive?,"An additional PHP 3,000 monthly 'Mental Wellness' stipend."
-What metric value represents continuous upskilling and career upward mobility in Section 5?,TrainingTimesLastYear (valued at 3.28%).
-What happens if a manager fails to allocate time for an employee to meet the mandatory training quota?,The manager's own KPI will be penalized.
-Which prestigious institutions are partnered with Acme Corp for third-party educational certifications?,The Asian Institute of Management (AIM) and TESDA.
-What is the annual tuition reimbursement amount available to employees for approved third-party certifications?,"PHP 50,000 annually."
-Give examples of approved certifications eligible for tuition reimbursement under Section 5.,"Six Sigma, AWS, and Data Analytics."
-What term describes the interpersonal harmony and cultural workplace dynamics critical in Philippine work culture?,Pakikisama.
-Which two metrics in Section 6 are associated with friction causing silent attrition?,YearsWithCurrManager (2.49%) and EnvironmentSatisfaction (1.65%).
-What risk increases if an employee's YearsWithCurrManager exceeds 4 years?,The risk of favoritism ('palakasan') or interpersonal fatigue increases.
-What mandatory review is triggered automatically when YearsWithCurrManager exceeds 4 years?,An automatic 'Skip-Level 360 Review' directly with the Department Head.
-"If friction is identified during the Skip-Level Review, what action will HR facilitate?",HR will facilitate a 'no-questions-asked' team reshuffle to provide the employee with a fresh reporting structure.
-What environmental factor in Metro Manila severely impacts EnvironmentSatisfaction according to Section 6.2?,Metro Manila traffic.
-In which major hubs are point-to-point company shuttle services provided?,"Alabang, Makati, Ortigas, and Quezon City."
-What options are available under Flexible Work Arrangements (FWA) to avoid rush hour?,A hybrid schedule of up to 3 days Work-From-Home (WFH) or staggered shifts (such as 6:00 AM - 3:00 PM).
-What amenities does the office pantry provide to build community and lower daily expenses?,Subsidized catered lunches and free-flowing local coffee.
-What metric represents gender diversity support in Acme Corp's workforce?,Gender (accounting for 2.52% influence).
-How many days of fully paid maternity leave are provided under Section 7?,105 days of fully paid maternity leave.
-Under what law can maternity leave be expanded for single mothers?,The Solo Parents' Welfare Act.
-"How many days of paid paternity leave does Acme Corp provide, and how does it relate to the DOLE mandate?","14 days of paid paternity leave, which is double the DOLE mandate."
-What policy protects employees against gender-based harassment at Acme Corp?,The Safe Spaces Act (Bawal Bastos Law) with a zero-tolerance policy and dedicated anonymous HR hotlines.
-What is the purpose of the Comprehensive HR Intervention Matrix in Section 8?,"To guide managers in applying appropriate, policy-backed, DOLE-compliant interventions when algorithmic tools flag an employee with a high probability of churn."
-Who is the approval or action owner when TotalWorkingYears exceeds 10 years?,The HR Director.
-Who is the approval or action owner when PercentSalaryHike is less than 8 percent?,The VP & HR Partner.
-Who is the approval or action owner when YearsInCurrentRole exceeds 3 years?,The Department Head.
-Who is the approval or action owner when TrainingTimesLastYear is less than 2?,The Direct Manager.
-Who is the approval or action owner when YearsWithCurrManager exceeds 4 years?,The HR Business Partner.
-Who is the approval or action owner when EnvironmentSatisfaction is low?,The Direct Manager.
-Who is the approval or action owner when Daily Rate is low?,Payroll & Benefits.
-What specific retention benefit corresponds to TotalWorkingYears > 10 in the intervention matrix?,Activate Bayanihan Loyalty bonus + Offer 30-day Paid Sabbatical.
-What specific retention benefit corresponds to PercentSalaryHike < 8% in the intervention matrix?,Trigger off-cycle 10-15% Merit & Inflation Adjustment.
-What specific retention benefit corresponds to YearsInCurrentRole > 3 in the intervention matrix?,Initiate 3-Year Rotation Mandate; offer Acting Role with OIC pay.
-What specific retention benefit corresponds to TrainingTimesLastYear < 2 in the intervention matrix?,Mandate 2 fully-paid external training courses (TESDA/AIM).
-What specific retention benefit corresponds to YearsWithCurrManager > 4 in the intervention matrix?,Conduct Skip-Level Review; offer no-fault internal team transfer.
-What specific retention benefit corresponds to low Environment Satisfaction in the intervention matrix?,Approve staggered shift schedule or full WFH transition; enroll in Shuttle service.
-What specific retention benefit corresponds to low Daily Rate in the intervention matrix?,"Maximize DOLE De Minimis benefits (Rice, Clothing, Medical)."
-What is the exact name of the company mentioned in the playbook title?,Acme Corp Philippines.
-What department compiled the playbook?,Acme Corp Philippines Human Resources.
-Is the playbook intended for public or internal use?,Internal use only.
-What title is given to the playbook document?,Acme Corp Philippines: HR & Retention Playbook.
-What type of modeling preceded the creation of this playbook?,Predictive attrition modeling.
-What cultural concept is referenced alongside Metro Manila commuting?,Pakikisama.
-What is the percentage weight assigned to TotalWorkingYears in attrition modeling?,18.88%.
-What is the percentage weight assigned to PercentSalaryHike in attrition modeling?,6.53%.
-What is the percentage weight assigned to YearsInCurrentRole in attrition modeling?,5.55%.
-What is the percentage weight assigned to TrainingTimesLastYear in attrition modeling?,3.28%.
-What is the percentage weight assigned to JobRole in attrition modeling?,3.49%.
+What is the effective date of the Acme Corp Philippines HR & Retention Playbook?,"January 1, 2024"
+Which government department's compliance is prioritized in the playbook?,Department of Labor and Employment (DOLE)
+"According to predictive models, what is the single largest factor in employee attrition?",TotalWorkingYears (18.88%)
+"What are the cash bonus amounts for the Bayanihan Loyalty Program at 5, 10, and 15 years?","PHP 50,000, PHP 100,000, and PHP 150,000 respectively"
+How many days of paid sabbatical leave are employees with over 10 TotalWorkingYears entitled to?,A fully paid 30-day sabbatical leave
+What HMO benefit is given to employees with over 5 TotalWorkingYears?,"Free premium HMO coverage for up to three qualified dependents, covering pre-existing conditions"
+What is the minimum inflation hike for all non-PIP employees?,A baseline 4% PercentSalaryHike annually
+What PercentSalaryHike is required for high-flight-risk employees with an Outstanding or Excellent rating?,A total 10% to 15% PercentSalaryHike
+When is HR authorized to process an off-cycle salary adjustment?,If an employee has not received a hike of at least 8% in the last 12 months
+How much is the monthly rice allowance under the De Minimis benefits?,"PHP 2,000 monthly"
+What is the annual clothing allowance amount provided by Acme Corp?,"PHP 6,000 annually"
+How much is the Medical Cash Allowance annually for out-of-pocket pharmacy expenses?,"PHP 10,000 annually"
+Which employees are eligible for maximum DOLE-approved De Minimis benefits?,Employees whose DailyRate falls in the lower 30th percentile of their department
+What are the three primary metrics indicating career stagnation?,"YearsInCurrentRole (5.55%), JobRole (3.49%), and JobLevel (3.12%)"
+What must a manager initiate if an employee reaches 3 YearsInCurrentRole without a formal promotion?,A 'Career Crossroads' dialogue
+What is a lateral transfer under the 3-Year Rotation Mandate?,A no-fault transfer to a different team or department to learn new skills
+What allowance is provided during an 'Acting' Capacity Role assignment?,A 10% OIC (Officer-in-Charge) allowance
+How long does a temporary 'Acting' Capacity Role assignment last?,6 months
+What is the mandated Night Shift Differential for work performed between 10:00 PM and 6:00 AM?,15%
+How much is the monthly Mental Wellness stipend for high-stress roles?,"PHP 3,000"
+What is the mandatory training quota for every employee?,A minimum of 3 TrainingTimesLastYear
+What is the penalty if a manager fails to allocate time for employee training quotas?,The manager's own KPI will be penalized
+How much tuition reimbursement are employees entitled to annually for approved certifications?,"PHP 50,000 annually"
+Name two partner institutions mentioned for third-party certifications.,Asian Institute of Management (AIM) and TESDA
+What condition triggers an automatic Skip-Level 360 Review?,When an employee's YearsWithCurrManager exceeds 4 years
+Who is mandated to facilitate the Skip-Level 360 Review?,The Department Head
+What action is taken if interpersonal friction is identified during a Skip-Level Review?,HR will facilitate a 'no-questions-asked' team reshuffle
+Where are the point-to-point company shuttles provided in Metro Manila?,"Alabang, Makati, Ortigas, and Quezon City"
+How many days of Work-From-Home (WFH) are allowed under the Flexible Work Arrangements (FWA)?,Up to 3 days Work-From-Home
+What staggered shift example is given to avoid rush hour traffic?,6:00 AM - 3:00 PM
+What free amenities are provided in the office pantry?,Subsidized catered lunches and free-flowing local coffee
+How many days of fully paid maternity leave are provided?,105 days
+Under what act can maternity leave be expanded for single mothers?,Solo Parents' Welfare Act
+How many days of paid paternity leave does Acme Corp provide?,14 days
+How many additional days of paid leave are verified solo parents entitled to annually?,7 additional days
+Which law enforces a zero tolerance policy for gender-based harassment?,Safe Spaces Act (Bawal Bastos Law)
+How can employees report gender-based harassment?,"Through dedicated, anonymous HR hotlines"
+"According to the HR Intervention Matrix, what should be done if TotalWorkingYears is greater than 10?",Activate Bayanihan Loyalty bonus and offer a 30-day Paid Sabbatical
+Who is the approval owner for interventions related to TotalWorkingYears > 10?,HR Director
+"According to the HR Intervention Matrix, what should be done if PercentSalaryHike is less than 8%?",Trigger an off-cycle 10-15% Merit & Inflation Adjustment
+Who must approve a Merit & Inflation Adjustment?,VP & HR Partner
+"According to the HR Intervention Matrix, what should be done if YearsInCurrentRole is greater than 3?",Initiate the 3-Year Rotation Mandate and offer an Acting Role with OIC pay
+Who owns the action for addressing an employee with YearsInCurrentRole > 3?,Department Head
+"According to the HR Intervention Matrix, what should be done if TrainingTimesLastYear is less than 2?",Mandate 2 fully-paid external training courses (TESDA/AIM)
+Who is responsible for mandating external training courses if TrainingTimesLastYear is low?,Direct Manager
+"According to the HR Intervention Matrix, what should be done if YearsWithCurrManager is greater than 4?",Conduct a Skip-Level Review and offer a no-fault internal team transfer
+Who is the action owner for conducting a Skip-Level Review?,HR Business Partner
+"According to the HR Intervention Matrix, what should be done if an employee has Low Environment Satisfaction?","Approve a staggered shift schedule or full WFH transition, and enroll in Shuttle service"
+"According to the HR Intervention Matrix, what should be done for an employee with a Low Daily Rate?","Maximize DOLE De Minimis benefits like Rice, Clothing, and Medical allowances"
+Who is the action owner for maximizing De Minimis benefits for a Low Daily Rate?,Payroll & Benefits

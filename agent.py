@@ -346,36 +346,39 @@ if os.path.exists("hr_retention_playbook.pdf"):
 
 policy_retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 
-# --- RAG Node (Upgraded with Conditional Formatting) ---
+# --- RAG Node (Upgraded to prevent Memory Leaks and Stacking Headers) ---
 def rag_node(state):
     messages = state["messages"]
     
+    # 1. ONLY grab a prediction if the PREDICTOR node just ran in this exact turn.
+    # If it did, the last message before this RAG node will be the AI's prediction output.
     prediction_output = ""
-    for msg in reversed(messages):
-        if hasattr(msg, "content") and "Retention Assessment:" in msg.content:
-            prediction_output = msg.content
-            break
+    last_msg = messages[-1]
+    
+    if isinstance(last_msg, AIMessage) and "Retention Assessment:" in last_msg.content:
+        # Cleanly extract just the prediction block without stacking old headers
+        idx = last_msg.content.find("Retention Assessment:")
+        if idx != -1:
+            prediction_output = last_msg.content[idx:]
             
-    last_message = ""
+    # 2. Extract the actual user prompt (the most recent HumanMessage)
+    user_request = ""
     for msg in reversed(messages):
         if isinstance(msg, HumanMessage) or msg.type == 'human':
-            last_message = msg.content
+            user_request = msg.content
             break
-    if not last_message:
-        last_message = messages[-1].content
-        
-    retrieved_docs = policy_retriever.invoke(last_message)
+            
+    retrieved_docs = policy_retriever.invoke(user_request)
     context = "\n\n".join(doc.page_content for doc in retrieved_docs)
     
-    # Strictly define when to use an email format vs a normal chat format
     executive_hr_prompt = f"""You are a professional Senior HR Business Partner and People Operations Advisor. 
     Maintain an executive, empathetic tone. Never use technical AI jargon (models, algorithms, SHAP).
     
     CRITICAL FORMATTING RULES:
     1. If the user EXPLICITLY asks to "draft an email", "write a memo", or "draft a communication", generate a ready-to-send professional email.
-    2. If the user DOES NOT explicitly ask for an email (e.g., they just ask for a "strategy", "advice", or "recommendations"), reply normally using clear bullet points. DO NOT output a letter, subject line, or "Dear Manager" greeting.
+    2. If the user DOES NOT explicitly ask for an email, reply normally using clear bullet points. DO NOT output a letter, subject line, or "Dear Manager" greeting.
     
-    If provided, here is the retention risk assessment for the employee:
+    If provided, here is the NEW retention risk assessment for the employee:
     {prediction_output}
     
     Based strictly on the provided internal company HR Playbook context, answer the request. 
@@ -383,10 +386,11 @@ def rag_node(state):
     Company Policy Context:
     {context}
     
-    Manager Request: {last_message}"""
+    Manager Request: {user_request}"""
     
     response = llm.invoke(executive_hr_prompt)
     
+    # Only attach the custom header if a NEW prediction was actually generated this turn
     if prediction_output:
         final_content = f"**HR Copilot Analysis & Output:**\n\n{prediction_output}\n\n---\n\n{response.content}"
     else:
